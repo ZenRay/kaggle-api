@@ -49,15 +49,193 @@ class KaggleApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def competition_download_leaderboard(self, id, **kwargs):  # noqa: E501
+        """Download competition leaderboard  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competition_download_leaderboard(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: Competition name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.competition_download_leaderboard_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.competition_download_leaderboard_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def competition_download_leaderboard_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Download competition leaderboard  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competition_download_leaderboard_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: Competition name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method competition_download_leaderboard" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `competition_download_leaderboard`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/competitions/{id}/leaderboard/download', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def competition_view_leaderboard(self, id, **kwargs):  # noqa: E501
+        """VIew competition leaderboard  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competition_view_leaderboard(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: Competition name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.competition_view_leaderboard_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.competition_view_leaderboard_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def competition_view_leaderboard_with_http_info(self, id, **kwargs):  # noqa: E501
+        """VIew competition leaderboard  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competition_view_leaderboard_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: Competition name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method competition_view_leaderboard" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `competition_view_leaderboard`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/competitions/{id}/leaderboard/view', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def competitions_data_download_file(self, id, file_name, **kwargs):  # noqa: E501
         """Download competition data file  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_data_download_file(id, file_name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_data_download_file(id, file_name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: Competition name (required)
         :param str file_name: Competition name (required)
         :return: Result
@@ -65,7 +243,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.competitions_data_download_file_with_http_info(id, file_name, **kwargs)  # noqa: E501
         else:
             (data) = self.competitions_data_download_file_with_http_info(id, file_name, **kwargs)  # noqa: E501
@@ -75,11 +253,11 @@ class KaggleApi(object):
         """Download competition data file  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_data_download_file_with_http_info(id, file_name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_data_download_file_with_http_info(id, file_name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: Competition name (required)
         :param str file_name: Competition name (required)
         :return: Result
@@ -88,7 +266,7 @@ class KaggleApi(object):
         """
 
         all_params = ['id', 'file_name']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -140,7 +318,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -150,18 +328,18 @@ class KaggleApi(object):
         """List competition data files  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_data_list_files(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_data_list_files(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: Competition name (required)
         :return: Result
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.competitions_data_list_files_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.competitions_data_list_files_with_http_info(id, **kwargs)  # noqa: E501
@@ -171,11 +349,11 @@ class KaggleApi(object):
         """List competition data files  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_data_list_files_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_data_list_files_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: Competition name (required)
         :return: Result
                  If the method is called asynchronously,
@@ -183,7 +361,7 @@ class KaggleApi(object):
         """
 
         all_params = ['id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -233,7 +411,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -243,11 +421,14 @@ class KaggleApi(object):
         """List competitions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_list(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_list(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
+        :param str group: Filter competitions by a particular group
+        :param str category: Filter competitions by a particular category
+        :param str sort_by: Sort the results
         :param int page: Page number
         :param str search: Search terms
         :return: Result
@@ -255,7 +436,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.competitions_list_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.competitions_list_with_http_info(**kwargs)  # noqa: E501
@@ -265,11 +446,14 @@ class KaggleApi(object):
         """List competitions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_list_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_list_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
+        :param str group: Filter competitions by a particular group
+        :param str category: Filter competitions by a particular category
+        :param str sort_by: Sort the results
         :param int page: Page number
         :param str search: Search terms
         :return: Result
@@ -277,8 +461,8 @@ class KaggleApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'search']  # noqa: E501
-        all_params.append('async')
+        all_params = ['group', 'category', 'sort_by', 'page', 'search']  # noqa: E501
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -298,6 +482,12 @@ class KaggleApi(object):
         path_params = {}
 
         query_params = []
+        if 'group' in params:
+            query_params.append(('group', params['group']))  # noqa: E501
+        if 'category' in params:
+            query_params.append(('category', params['category']))  # noqa: E501
+        if 'sort_by' in params:
+            query_params.append(('sortBy', params['sort_by']))  # noqa: E501
         if 'page' in params:
             query_params.append(('page', params['page']))  # noqa: E501
         if 'search' in params:
@@ -326,7 +516,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -336,11 +526,11 @@ class KaggleApi(object):
         """List competition submissions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_submissions_list(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_submissions_list(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: Competition name (required)
         :param int page: Page number
         :return: Result
@@ -348,7 +538,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.competitions_submissions_list_with_http_info(id, **kwargs)  # noqa: E501
         else:
             (data) = self.competitions_submissions_list_with_http_info(id, **kwargs)  # noqa: E501
@@ -358,11 +548,11 @@ class KaggleApi(object):
         """List competition submissions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_submissions_list_with_http_info(id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_submissions_list_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str id: Competition name (required)
         :param int page: Page number
         :return: Result
@@ -371,7 +561,7 @@ class KaggleApi(object):
         """
 
         all_params = ['id', 'page']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -423,7 +613,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -433,11 +623,11 @@ class KaggleApi(object):
         """Submit to competition  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_submissions_submit(blob_file_tokens, submission_description, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_submissions_submit(blob_file_tokens, submission_description, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str blob_file_tokens: Token identifying location of uploaded submission file (required)
         :param str submission_description: Description of competition submission (required)
         :param str id: Competition name (required)
@@ -446,7 +636,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.competitions_submissions_submit_with_http_info(blob_file_tokens, submission_description, id, **kwargs)  # noqa: E501
         else:
             (data) = self.competitions_submissions_submit_with_http_info(blob_file_tokens, submission_description, id, **kwargs)  # noqa: E501
@@ -456,11 +646,11 @@ class KaggleApi(object):
         """Submit to competition  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_submissions_submit_with_http_info(blob_file_tokens, submission_description, id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_submissions_submit_with_http_info(blob_file_tokens, submission_description, id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str blob_file_tokens: Token identifying location of uploaded submission file (required)
         :param str submission_description: Description of competition submission (required)
         :param str id: Competition name (required)
@@ -470,7 +660,7 @@ class KaggleApi(object):
         """
 
         all_params = ['blob_file_tokens', 'submission_description', 'id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -536,7 +726,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -546,11 +736,11 @@ class KaggleApi(object):
         """Upload competition submission file  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_submissions_upload(file, guid, content_length, last_modified_date_utc, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_submissions_upload(file, guid, content_length, last_modified_date_utc, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file file: Competition submission file (required)
         :param str guid: Location where submission should be uploaded (required)
         :param int content_length: Content length of file in bytes (required)
@@ -560,7 +750,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.competitions_submissions_upload_with_http_info(file, guid, content_length, last_modified_date_utc, **kwargs)  # noqa: E501
         else:
             (data) = self.competitions_submissions_upload_with_http_info(file, guid, content_length, last_modified_date_utc, **kwargs)  # noqa: E501
@@ -570,11 +760,11 @@ class KaggleApi(object):
         """Upload competition submission file  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_submissions_upload_with_http_info(file, guid, content_length, last_modified_date_utc, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_submissions_upload_with_http_info(file, guid, content_length, last_modified_date_utc, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file file: Competition submission file (required)
         :param str guid: Location where submission should be uploaded (required)
         :param int content_length: Content length of file in bytes (required)
@@ -585,7 +775,7 @@ class KaggleApi(object):
         """
 
         all_params = ['file', 'guid', 'content_length', 'last_modified_date_utc']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -657,21 +847,22 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def competitions_submissions_url(self, content_length, last_modified_date_utc, **kwargs):  # noqa: E501
+    def competitions_submissions_url(self, id, content_length, last_modified_date_utc, **kwargs):  # noqa: E501
         """Generate competition submission URL  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_submissions_url(content_length, last_modified_date_utc, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_submissions_url(id, content_length, last_modified_date_utc, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
+        :param str id: Competition name, as it appears in the competition's URL (required)
         :param int content_length: Content length of file in bytes (required)
         :param int last_modified_date_utc: Last modified date of file in milliseconds since epoch in UTC (required)
         :param str file_name: Competition submission file name
@@ -680,21 +871,22 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.competitions_submissions_url_with_http_info(content_length, last_modified_date_utc, **kwargs)  # noqa: E501
+        if kwargs.get('async_req'):
+            return self.competitions_submissions_url_with_http_info(id, content_length, last_modified_date_utc, **kwargs)  # noqa: E501
         else:
-            (data) = self.competitions_submissions_url_with_http_info(content_length, last_modified_date_utc, **kwargs)  # noqa: E501
+            (data) = self.competitions_submissions_url_with_http_info(id, content_length, last_modified_date_utc, **kwargs)  # noqa: E501
             return data
 
-    def competitions_submissions_url_with_http_info(self, content_length, last_modified_date_utc, **kwargs):  # noqa: E501
+    def competitions_submissions_url_with_http_info(self, id, content_length, last_modified_date_utc, **kwargs):  # noqa: E501
         """Generate competition submission URL  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.competitions_submissions_url_with_http_info(content_length, last_modified_date_utc, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.competitions_submissions_url_with_http_info(id, content_length, last_modified_date_utc, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
+        :param str id: Competition name, as it appears in the competition's URL (required)
         :param int content_length: Content length of file in bytes (required)
         :param int last_modified_date_utc: Last modified date of file in milliseconds since epoch in UTC (required)
         :param str file_name: Competition submission file name
@@ -703,8 +895,8 @@ class KaggleApi(object):
                  returns the request thread.
         """
 
-        all_params = ['content_length', 'last_modified_date_utc', 'file_name']  # noqa: E501
-        all_params.append('async')
+        all_params = ['id', 'content_length', 'last_modified_date_utc', 'file_name']  # noqa: E501
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -718,6 +910,10 @@ class KaggleApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `competitions_submissions_url`")  # noqa: E501
         # verify the required parameter 'content_length' is set
         if ('content_length' not in params or
                 params['content_length'] is None):
@@ -730,6 +926,8 @@ class KaggleApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
         if 'content_length' in params:
             path_params['contentLength'] = params['content_length']  # noqa: E501
         if 'last_modified_date_utc' in params:
@@ -757,7 +955,7 @@ class KaggleApi(object):
         auth_settings = ['basicAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/competitions/submissions/url/{contentLength}/{lastModifiedDateUtc}', 'POST',
+            '/competitions/{id}/submissions/url/{contentLength}/{lastModifiedDateUtc}', 'POST',
             path_params,
             query_params,
             header_params,
@@ -766,7 +964,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -776,18 +974,18 @@ class KaggleApi(object):
         """Create a new dataset  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_create_new(dataset_new_request, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_create_new(dataset_new_request, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetNewRequest dataset_new_request: Information for creating a new dataset (required)
         :return: Result
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.datasets_create_new_with_http_info(dataset_new_request, **kwargs)  # noqa: E501
         else:
             (data) = self.datasets_create_new_with_http_info(dataset_new_request, **kwargs)  # noqa: E501
@@ -797,11 +995,11 @@ class KaggleApi(object):
         """Create a new dataset  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_create_new_with_http_info(dataset_new_request, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_create_new_with_http_info(dataset_new_request, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DatasetNewRequest dataset_new_request: Information for creating a new dataset (required)
         :return: Result
                  If the method is called asynchronously,
@@ -809,7 +1007,7 @@ class KaggleApi(object):
         """
 
         all_params = ['dataset_new_request']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -863,7 +1061,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -873,11 +1071,11 @@ class KaggleApi(object):
         """Create a new dataset version  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_create_version(owner_slug, dataset_slug, dataset_new_version_request, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_create_version(owner_slug, dataset_slug, dataset_new_version_request, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str owner_slug: Dataset owner (required)
         :param str dataset_slug: Dataset name (required)
         :param DatasetNewVersionRequest dataset_new_version_request: Information for creating a new dataset version (required)
@@ -886,7 +1084,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.datasets_create_version_with_http_info(owner_slug, dataset_slug, dataset_new_version_request, **kwargs)  # noqa: E501
         else:
             (data) = self.datasets_create_version_with_http_info(owner_slug, dataset_slug, dataset_new_version_request, **kwargs)  # noqa: E501
@@ -896,11 +1094,11 @@ class KaggleApi(object):
         """Create a new dataset version  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_create_version_with_http_info(owner_slug, dataset_slug, dataset_new_version_request, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_create_version_with_http_info(owner_slug, dataset_slug, dataset_new_version_request, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str owner_slug: Dataset owner (required)
         :param str dataset_slug: Dataset name (required)
         :param DatasetNewVersionRequest dataset_new_version_request: Information for creating a new dataset version (required)
@@ -910,7 +1108,7 @@ class KaggleApi(object):
         """
 
         all_params = ['owner_slug', 'dataset_slug', 'dataset_new_version_request']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -976,7 +1174,217 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def datasets_create_version_by_id(self, id, dataset_new_version_request, **kwargs):  # noqa: E501
+        """Create a new dataset version by id  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_create_version_by_id(id, dataset_new_version_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: Dataset ID (required)
+        :param DatasetNewVersionRequest dataset_new_version_request: Information for creating a new dataset version (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.datasets_create_version_by_id_with_http_info(id, dataset_new_version_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.datasets_create_version_by_id_with_http_info(id, dataset_new_version_request, **kwargs)  # noqa: E501
+            return data
+
+    def datasets_create_version_by_id_with_http_info(self, id, dataset_new_version_request, **kwargs):  # noqa: E501
+        """Create a new dataset version by id  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_create_version_by_id_with_http_info(id, dataset_new_version_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: Dataset ID (required)
+        :param DatasetNewVersionRequest dataset_new_version_request: Information for creating a new dataset version (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'dataset_new_version_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method datasets_create_version_by_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `datasets_create_version_by_id`")  # noqa: E501
+        # verify the required parameter 'dataset_new_version_request' is set
+        if ('dataset_new_version_request' not in params or
+                params['dataset_new_version_request'] is None):
+            raise ValueError("Missing the required parameter `dataset_new_version_request` when calling `datasets_create_version_by_id`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'dataset_new_version_request' in params:
+            body_params = params['dataset_new_version_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datasets/create/version/{id}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def datasets_download(self, owner_slug, dataset_slug, **kwargs):  # noqa: E501
+        """Download dataset file  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_download(owner_slug, dataset_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner_slug: Dataset owner (required)
+        :param str dataset_slug: Dataset name (required)
+        :param str dataset_version_number: Dataset version number
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.datasets_download_with_http_info(owner_slug, dataset_slug, **kwargs)  # noqa: E501
+        else:
+            (data) = self.datasets_download_with_http_info(owner_slug, dataset_slug, **kwargs)  # noqa: E501
+            return data
+
+    def datasets_download_with_http_info(self, owner_slug, dataset_slug, **kwargs):  # noqa: E501
+        """Download dataset file  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_download_with_http_info(owner_slug, dataset_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner_slug: Dataset owner (required)
+        :param str dataset_slug: Dataset name (required)
+        :param str dataset_version_number: Dataset version number
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner_slug', 'dataset_slug', 'dataset_version_number']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method datasets_download" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner_slug' is set
+        if ('owner_slug' not in params or
+                params['owner_slug'] is None):
+            raise ValueError("Missing the required parameter `owner_slug` when calling `datasets_download`")  # noqa: E501
+        # verify the required parameter 'dataset_slug' is set
+        if ('dataset_slug' not in params or
+                params['dataset_slug'] is None):
+            raise ValueError("Missing the required parameter `dataset_slug` when calling `datasets_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner_slug' in params:
+            path_params['ownerSlug'] = params['owner_slug']  # noqa: E501
+        if 'dataset_slug' in params:
+            path_params['datasetSlug'] = params['dataset_slug']  # noqa: E501
+
+        query_params = []
+        if 'dataset_version_number' in params:
+            query_params.append(('datasetVersionNumber', params['dataset_version_number']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['file'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datasets/download/{ownerSlug}/{datasetSlug}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -986,11 +1394,11 @@ class KaggleApi(object):
         """Download dataset file  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_download_file(owner_slug, dataset_slug, file_name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_download_file(owner_slug, dataset_slug, file_name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str owner_slug: Dataset owner (required)
         :param str dataset_slug: Dataset name (required)
         :param str file_name: File name (required)
@@ -1000,7 +1408,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.datasets_download_file_with_http_info(owner_slug, dataset_slug, file_name, **kwargs)  # noqa: E501
         else:
             (data) = self.datasets_download_file_with_http_info(owner_slug, dataset_slug, file_name, **kwargs)  # noqa: E501
@@ -1010,11 +1418,11 @@ class KaggleApi(object):
         """Download dataset file  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_download_file_with_http_info(owner_slug, dataset_slug, file_name, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_download_file_with_http_info(owner_slug, dataset_slug, file_name, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str owner_slug: Dataset owner (required)
         :param str dataset_slug: Dataset name (required)
         :param str file_name: File name (required)
@@ -1025,7 +1433,7 @@ class KaggleApi(object):
         """
 
         all_params = ['owner_slug', 'dataset_slug', 'file_name', 'dataset_version_number']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1089,7 +1497,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1099,19 +1507,26 @@ class KaggleApi(object):
         """List datasets  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_list(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_list(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
-        :param int page: Page number
+        :param async_req bool
+        :param str group: Display datasets by a particular group
+        :param str sort_by: Sort the results
+        :param str size: Display datasets of a specific size
+        :param str filetype: Display datasets of a specific file type
+        :param str license: Display datasets with a specific license
+        :param str tagids: A comma separated list of tags to filter by
         :param str search: Search terms
+        :param str user: Display datasets by a specific user or organization
+        :param int page: Page number
         :return: Result
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.datasets_list_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.datasets_list_with_http_info(**kwargs)  # noqa: E501
@@ -1121,20 +1536,27 @@ class KaggleApi(object):
         """List datasets  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_list_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_list_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
-        :param int page: Page number
+        :param async_req bool
+        :param str group: Display datasets by a particular group
+        :param str sort_by: Sort the results
+        :param str size: Display datasets of a specific size
+        :param str filetype: Display datasets of a specific file type
+        :param str license: Display datasets with a specific license
+        :param str tagids: A comma separated list of tags to filter by
         :param str search: Search terms
+        :param str user: Display datasets by a specific user or organization
+        :param int page: Page number
         :return: Result
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['page', 'search']  # noqa: E501
-        all_params.append('async')
+        all_params = ['group', 'sort_by', 'size', 'filetype', 'license', 'tagids', 'search', 'user', 'page']  # noqa: E501
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1154,10 +1576,24 @@ class KaggleApi(object):
         path_params = {}
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
+        if 'group' in params:
+            query_params.append(('group', params['group']))  # noqa: E501
+        if 'sort_by' in params:
+            query_params.append(('sortBy', params['sort_by']))  # noqa: E501
+        if 'size' in params:
+            query_params.append(('size', params['size']))  # noqa: E501
+        if 'filetype' in params:
+            query_params.append(('filetype', params['filetype']))  # noqa: E501
+        if 'license' in params:
+            query_params.append(('license', params['license']))  # noqa: E501
+        if 'tagids' in params:
+            query_params.append(('tagids', params['tagids']))  # noqa: E501
         if 'search' in params:
             query_params.append(('search', params['search']))  # noqa: E501
+        if 'user' in params:
+            query_params.append(('user', params['user']))  # noqa: E501
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
 
         header_params = {}
 
@@ -1182,7 +1618,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1192,11 +1628,11 @@ class KaggleApi(object):
         """List dataset files  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_list_files(owner_slug, dataset_slug, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_list_files(owner_slug, dataset_slug, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str owner_slug: Dataset owner (required)
         :param str dataset_slug: Dataset name (required)
         :return: Result
@@ -1204,7 +1640,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.datasets_list_files_with_http_info(owner_slug, dataset_slug, **kwargs)  # noqa: E501
         else:
             (data) = self.datasets_list_files_with_http_info(owner_slug, dataset_slug, **kwargs)  # noqa: E501
@@ -1214,11 +1650,11 @@ class KaggleApi(object):
         """List dataset files  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_list_files_with_http_info(owner_slug, dataset_slug, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_list_files_with_http_info(owner_slug, dataset_slug, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str owner_slug: Dataset owner (required)
         :param str dataset_slug: Dataset name (required)
         :return: Result
@@ -1227,7 +1663,7 @@ class KaggleApi(object):
         """
 
         all_params = ['owner_slug', 'dataset_slug']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1283,7 +1719,108 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def datasets_status(self, owner_slug, dataset_slug, **kwargs):  # noqa: E501
+        """Get dataset creation status  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_status(owner_slug, dataset_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner_slug: Dataset owner (required)
+        :param str dataset_slug: Dataset name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.datasets_status_with_http_info(owner_slug, dataset_slug, **kwargs)  # noqa: E501
+        else:
+            (data) = self.datasets_status_with_http_info(owner_slug, dataset_slug, **kwargs)  # noqa: E501
+            return data
+
+    def datasets_status_with_http_info(self, owner_slug, dataset_slug, **kwargs):  # noqa: E501
+        """Get dataset creation status  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_status_with_http_info(owner_slug, dataset_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner_slug: Dataset owner (required)
+        :param str dataset_slug: Dataset name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner_slug', 'dataset_slug']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method datasets_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner_slug' is set
+        if ('owner_slug' not in params or
+                params['owner_slug'] is None):
+            raise ValueError("Missing the required parameter `owner_slug` when calling `datasets_status`")  # noqa: E501
+        # verify the required parameter 'dataset_slug' is set
+        if ('dataset_slug' not in params or
+                params['dataset_slug'] is None):
+            raise ValueError("Missing the required parameter `dataset_slug` when calling `datasets_status`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner_slug' in params:
+            path_params['ownerSlug'] = params['owner_slug']  # noqa: E501
+        if 'dataset_slug' in params:
+            path_params['datasetSlug'] = params['dataset_slug']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datasets/status/{ownerSlug}/{datasetSlug}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1293,11 +1830,11 @@ class KaggleApi(object):
         """Get URL and token to start uploading a data file  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_upload_file(file_name, content_length, last_modified_date_utc, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_upload_file(file_name, content_length, last_modified_date_utc, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str file_name: Dataset file name (required)
         :param int content_length: Content length of file in bytes (required)
         :param int last_modified_date_utc: Last modified date of file in milliseconds since epoch in UTC (required)
@@ -1306,7 +1843,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.datasets_upload_file_with_http_info(file_name, content_length, last_modified_date_utc, **kwargs)  # noqa: E501
         else:
             (data) = self.datasets_upload_file_with_http_info(file_name, content_length, last_modified_date_utc, **kwargs)  # noqa: E501
@@ -1316,11 +1853,11 @@ class KaggleApi(object):
         """Get URL and token to start uploading a data file  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_upload_file_with_http_info(file_name, content_length, last_modified_date_utc, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_upload_file_with_http_info(file_name, content_length, last_modified_date_utc, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str file_name: Dataset file name (required)
         :param int content_length: Content length of file in bytes (required)
         :param int last_modified_date_utc: Last modified date of file in milliseconds since epoch in UTC (required)
@@ -1330,7 +1867,7 @@ class KaggleApi(object):
         """
 
         all_params = ['file_name', 'content_length', 'last_modified_date_utc']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1396,7 +1933,7 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -1406,11 +1943,11 @@ class KaggleApi(object):
         """Show details about a dataset  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_view(owner_slug, dataset_slug, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_view(owner_slug, dataset_slug, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str owner_slug: Dataset owner (required)
         :param str dataset_slug: Dataset name (required)
         :return: Result
@@ -1418,7 +1955,7 @@ class KaggleApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.datasets_view_with_http_info(owner_slug, dataset_slug, **kwargs)  # noqa: E501
         else:
             (data) = self.datasets_view_with_http_info(owner_slug, dataset_slug, **kwargs)  # noqa: E501
@@ -1428,11 +1965,11 @@ class KaggleApi(object):
         """Show details about a dataset  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.datasets_view_with_http_info(owner_slug, dataset_slug, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_view_with_http_info(owner_slug, dataset_slug, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str owner_slug: Dataset owner (required)
         :param str dataset_slug: Dataset name (required)
         :return: Result
@@ -1441,7 +1978,7 @@ class KaggleApi(object):
         """
 
         all_params = ['owner_slug', 'dataset_slug']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1497,7 +2034,540 @@ class KaggleApi(object):
             files=local_var_files,
             response_type='Result',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def kernel_output(self, user_name, kernel_slug, **kwargs):  # noqa: E501
+        """Download the latest output from a kernel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernel_output(user_name, kernel_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_name: Kernel owner (required)
+        :param str kernel_slug: Kernel name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.kernel_output_with_http_info(user_name, kernel_slug, **kwargs)  # noqa: E501
+        else:
+            (data) = self.kernel_output_with_http_info(user_name, kernel_slug, **kwargs)  # noqa: E501
+            return data
+
+    def kernel_output_with_http_info(self, user_name, kernel_slug, **kwargs):  # noqa: E501
+        """Download the latest output from a kernel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernel_output_with_http_info(user_name, kernel_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_name: Kernel owner (required)
+        :param str kernel_slug: Kernel name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_name', 'kernel_slug']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method kernel_output" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_name' is set
+        if ('user_name' not in params or
+                params['user_name'] is None):
+            raise ValueError("Missing the required parameter `user_name` when calling `kernel_output`")  # noqa: E501
+        # verify the required parameter 'kernel_slug' is set
+        if ('kernel_slug' not in params or
+                params['kernel_slug'] is None):
+            raise ValueError("Missing the required parameter `kernel_slug` when calling `kernel_output`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'user_name' in params:
+            query_params.append(('userName', params['user_name']))  # noqa: E501
+        if 'kernel_slug' in params:
+            query_params.append(('kernelSlug', params['kernel_slug']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/kernels/output', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def kernel_pull(self, user_name, kernel_slug, **kwargs):  # noqa: E501
+        """Pull the latest code from a kernel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernel_pull(user_name, kernel_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_name: Kernel owner (required)
+        :param str kernel_slug: Kernel name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.kernel_pull_with_http_info(user_name, kernel_slug, **kwargs)  # noqa: E501
+        else:
+            (data) = self.kernel_pull_with_http_info(user_name, kernel_slug, **kwargs)  # noqa: E501
+            return data
+
+    def kernel_pull_with_http_info(self, user_name, kernel_slug, **kwargs):  # noqa: E501
+        """Pull the latest code from a kernel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernel_pull_with_http_info(user_name, kernel_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_name: Kernel owner (required)
+        :param str kernel_slug: Kernel name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_name', 'kernel_slug']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method kernel_pull" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_name' is set
+        if ('user_name' not in params or
+                params['user_name'] is None):
+            raise ValueError("Missing the required parameter `user_name` when calling `kernel_pull`")  # noqa: E501
+        # verify the required parameter 'kernel_slug' is set
+        if ('kernel_slug' not in params or
+                params['kernel_slug'] is None):
+            raise ValueError("Missing the required parameter `kernel_slug` when calling `kernel_pull`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'user_name' in params:
+            query_params.append(('userName', params['user_name']))  # noqa: E501
+        if 'kernel_slug' in params:
+            query_params.append(('kernelSlug', params['kernel_slug']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/kernels/pull', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def kernel_push(self, kernel_push_request, **kwargs):  # noqa: E501
+        """Push a new kernel version.  Can be used to create a new kernel and update an existing one.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernel_push(kernel_push_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param KernelPushRequest kernel_push_request: Information for pushing a new kernel version (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.kernel_push_with_http_info(kernel_push_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.kernel_push_with_http_info(kernel_push_request, **kwargs)  # noqa: E501
+            return data
+
+    def kernel_push_with_http_info(self, kernel_push_request, **kwargs):  # noqa: E501
+        """Push a new kernel version.  Can be used to create a new kernel and update an existing one.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernel_push_with_http_info(kernel_push_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param KernelPushRequest kernel_push_request: Information for pushing a new kernel version (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['kernel_push_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method kernel_push" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'kernel_push_request' is set
+        if ('kernel_push_request' not in params or
+                params['kernel_push_request'] is None):
+            raise ValueError("Missing the required parameter `kernel_push_request` when calling `kernel_push`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'kernel_push_request' in params:
+            body_params = params['kernel_push_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/kernels/push', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def kernel_status(self, user_name, kernel_slug, **kwargs):  # noqa: E501
+        """Get the status of the latest kernel version  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernel_status(user_name, kernel_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_name: Kernel owner (required)
+        :param str kernel_slug: Kernel name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.kernel_status_with_http_info(user_name, kernel_slug, **kwargs)  # noqa: E501
+        else:
+            (data) = self.kernel_status_with_http_info(user_name, kernel_slug, **kwargs)  # noqa: E501
+            return data
+
+    def kernel_status_with_http_info(self, user_name, kernel_slug, **kwargs):  # noqa: E501
+        """Get the status of the latest kernel version  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernel_status_with_http_info(user_name, kernel_slug, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str user_name: Kernel owner (required)
+        :param str kernel_slug: Kernel name (required)
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_name', 'kernel_slug']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method kernel_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_name' is set
+        if ('user_name' not in params or
+                params['user_name'] is None):
+            raise ValueError("Missing the required parameter `user_name` when calling `kernel_status`")  # noqa: E501
+        # verify the required parameter 'kernel_slug' is set
+        if ('kernel_slug' not in params or
+                params['kernel_slug'] is None):
+            raise ValueError("Missing the required parameter `kernel_slug` when calling `kernel_status`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'user_name' in params:
+            query_params.append(('userName', params['user_name']))  # noqa: E501
+        if 'kernel_slug' in params:
+            query_params.append(('kernelSlug', params['kernel_slug']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/kernels/status', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def kernels_list(self, **kwargs):  # noqa: E501
+        """List kernels  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernels_list(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int page: Page number
+        :param int page_size: Page size
+        :param str search: Search terms
+        :param str group: Display only your kernels
+        :param str user: Display kernels by a particular group
+        :param str language: Display kernels in a specific language
+        :param str kernel_type: Display kernels of a specific type
+        :param str output_type: Display kernels with a specific output type
+        :param str sort_by: Sort the results. 'relevance' only works if there is a search query
+        :param str dataset: Display kernels using the specified dataset
+        :param str competition: Display kernels using the specified competition
+        :param str parent_kernel: Display kernels that have forked the specified kernel
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.kernels_list_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.kernels_list_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def kernels_list_with_http_info(self, **kwargs):  # noqa: E501
+        """List kernels  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.kernels_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int page: Page number
+        :param int page_size: Page size
+        :param str search: Search terms
+        :param str group: Display only your kernels
+        :param str user: Display kernels by a particular group
+        :param str language: Display kernels in a specific language
+        :param str kernel_type: Display kernels of a specific type
+        :param str output_type: Display kernels with a specific output type
+        :param str sort_by: Sort the results. 'relevance' only works if there is a search query
+        :param str dataset: Display kernels using the specified dataset
+        :param str competition: Display kernels using the specified competition
+        :param str parent_kernel: Display kernels that have forked the specified kernel
+        :return: Result
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['page', 'page_size', 'search', 'group', 'user', 'language', 'kernel_type', 'output_type', 'sort_by', 'dataset', 'competition', 'parent_kernel']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method kernels_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'page_size' in params:
+            query_params.append(('pageSize', params['page_size']))  # noqa: E501
+        if 'search' in params:
+            query_params.append(('search', params['search']))  # noqa: E501
+        if 'group' in params:
+            query_params.append(('group', params['group']))  # noqa: E501
+        if 'user' in params:
+            query_params.append(('user', params['user']))  # noqa: E501
+        if 'language' in params:
+            query_params.append(('language', params['language']))  # noqa: E501
+        if 'kernel_type' in params:
+            query_params.append(('kernelType', params['kernel_type']))  # noqa: E501
+        if 'output_type' in params:
+            query_params.append(('outputType', params['output_type']))  # noqa: E501
+        if 'sort_by' in params:
+            query_params.append(('sortBy', params['sort_by']))  # noqa: E501
+        if 'dataset' in params:
+            query_params.append(('dataset', params['dataset']))  # noqa: E501
+        if 'competition' in params:
+            query_params.append(('competition', params['competition']))  # noqa: E501
+        if 'parent_kernel' in params:
+            query_params.append(('parentKernel', params['parent_kernel']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['basicAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/kernels/list', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Result',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
